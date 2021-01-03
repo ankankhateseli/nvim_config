@@ -13,6 +13,7 @@ Plug 'scrooloose/nerdcommenter'
 "Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'eshion/vim-sync'
 
 Plug 'morhetz/gruvbox'
 
@@ -30,6 +31,7 @@ nmap ++ <plug>NERDCommenterToggle
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * NERDTree
 set number
+set modifiable
 let g:NERDTreeStatusline = '%#NonText#'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd BufEnter * NERDTreeMirror
@@ -99,14 +101,14 @@ endfunction
 autocmd BufEnter * call SyncTree()
 
 " coc config
-let g:coc_global_extensions = [
-  \ 'coc-snippets',
-  \ 'coc-pairs',
-  \ 'coc-tsserver',
-  \ 'coc-eslint', 
-  \ 'coc-prettier', 
-  \ 'coc-json', 
-  \ ]
+"let g:coc_global_extensions = [
+  "\ 'coc-snippets',
+  "\ 'coc-pairs',
+  "\ 'coc-tsserver',
+  "\ 'coc-eslint', 
+  "\ 'coc-prettier', 
+  "\ 'coc-json', 
+  "\ ]
 " from readme
 " if hidden is not set, TextEdit might fail.
 set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
@@ -246,5 +248,4 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-
-let g:coc_global_config="$HOME/.config/coc/coc-settings.json"
+let g:coc_global_config="./coc-settings.json"
